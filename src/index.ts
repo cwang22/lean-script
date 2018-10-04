@@ -1,16 +1,12 @@
 import parse from './parser/index'
 import compile from './compiler/index'
+import Continuation from './Continuation'
 
 let stackLength: number
 let inExecute: boolean = false
 
 function GUARD(args: Array<any>, f: Function) {
   if (--stackLength < 0) throw new Continuation(f, args)
-}
-
-function Continuation(f: Function, args: Array<any>) {
-  this.f = f
-  this.args = args
 }
 
 function Execute(f: Function, args: Array<any>) {
@@ -32,7 +28,6 @@ function Execute(f: Function, args: Array<any>) {
       }
     }
   }
-
   inExecute = false
 }
 

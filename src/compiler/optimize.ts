@@ -1,7 +1,7 @@
-import { hasSideEffects } from './hasSideEffects';
-import { generateSymbol } from './generateSymbol';
-import { Environment } from '../Environment';
-import { ASTNode } from '../parser/parse';
+import { hasSideEffects } from './hasSideEffects'
+import { generateSymbol } from './generateSymbol'
+import { ASTNode } from '../parser/parse'
+import Environment from '../Environment'
 
 const FALSE = { type: 'bool', value: false }
 const TRUE = { type: 'bool', value: true }

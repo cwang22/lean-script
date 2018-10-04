@@ -1,4 +1,4 @@
-export class Environment {
+export default class Environment {
   vars: any
   parent: Environment
 
