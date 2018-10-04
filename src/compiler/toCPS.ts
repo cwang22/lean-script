@@ -1,6 +1,6 @@
 import { ASTNode, FALSE } from "../parser/parse"
-import { generateSymbol } from './generateSymbol'
-import { hasSideEffects } from './hasSideEffects'
+import { generateSymbol } from '../util/generateSymbol'
+import { hasSideEffects } from '../util/hasSideEffects'
 
 export interface CC {
   (any): ASTNode

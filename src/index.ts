@@ -1,6 +1,6 @@
 import parse from './parser/index'
 import compile from './compiler/index'
-import Continuation from './Continuation'
+import Continuation from './util/Continuation'
 
 let stackLength: number
 let inExecute: boolean = false
