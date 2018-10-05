@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lean Script</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <style>
+    .button {
+      margin-top: 1rem;
+    }
+  </style>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Lean Scirpt
+        </h1>
+        <h2 class="subtitle">
+          a basic programming language implemented in TypeScript.
+        </h2>
+        <a class="button is-primary is-inverted is-outlined" href="https://github.com/cwang22/lean-script"><i class="fab fa-github"></i><span style="padding-left:.25rem;">Github</spa></a>
+      </div>
+    </div>
+  </section>
+  <section class="section body">
+    <div class="container content">
+      <h2>Syntax</h2>
+      <pre>
+# this is a comment
+
+# assign
+a = 1;
+b = 2 + 3 * 4;
+
+# string
+c = "Hello World!"
+
+# block scoped variable
+let (a = 10, b = 20) {
+  a + b;
+}
+
+# function
+fib = func(n) if n < 2 then n else fib(n - 1) + fib(n - 2);
+        </pre>
+
+      <h2>Usage</h2>
+      <p>The language is packed as an UMD style library under namepsace <code>LS</code></p>
+      <pre>
+&lt;script src=&quot;path/to/lean-script.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  // 13
+  console.log(LS('fib = func(n) if n &lt; 2 then n else fib(n - 1) + fib(n - 2); fib(7);'))
+&lt;/script&gt;
+        </pre>
+      <h2>Try it out</h2>
+      <div class="columns" id="app">
+        <div class="column">
+          <h3>Code</h3>
+          <textarea class="textarea" v-model="code"></textarea>
+          <button class="button is-primary is-pulled-right" @click="run">Run</button>
+        </div>
+        <div class="column">
+          <h3>Results</h3>
+          <textarea class="textarea" v-model="result" disabled></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="lean-script.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        code: 'fib = func(n) if n < 2 then n else fib(n - 1) + fib(n - 2);\nfib(27);',
+        result: ''
+      },
+      methods: {
+        run() {
+          this.result = LS(this.code)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

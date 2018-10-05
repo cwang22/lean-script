@@ -31,3 +31,6 @@ The language is packed as an UMD style library under namepsace `LS`
         console.log(LS('fib = func(n) if n < 2 then n else fib(n - 1) + fib(n - 2); fib(7);'))
     </script>
 ````
+
+## Try it out
+https://cwang22.github.io/lean-script
